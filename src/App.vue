@@ -5,6 +5,7 @@
     <ul>
       <li v-for="place in placesToVisit" :key="place">
         {{ place }}
+        <button @click="removePlace(place)">Eliminar</button>
       </li>
     </ul>
   </div>
@@ -30,6 +31,11 @@ export default {
         this.placesToVisit.push(place);
       }
     },
+ 
+    removePlace(place) {
+      this.placesToVisit = this.placesToVisit.filter(p => p !== place);
+    }
   },
 };
 </script>
+ 
